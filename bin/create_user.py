@@ -36,7 +36,8 @@ def create_user(username, email):
         )
         db.session.add(new_user)
         db.session.commit()
-    except Exception:
+    except Exception as e:
+        print (e)
         exit("ERROR: Could not add user to the database")
 
     print("User created")
