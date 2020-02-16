@@ -2,6 +2,7 @@ import dash
 from flask import Flask, request, redirect
 from flask.helpers import get_root_path
 from flask_login import login_required
+from flask_migrate import Migrate
 
 from flaskdash.models import db
 from flaskdash.login import login_manager
@@ -24,6 +25,7 @@ def create_app():
 
 
     db.init_app(app)
+    migrate = Migrate(app, db)
     login_manager.init_app(app)
     login_manager.login_view = "authentication.login"
 
