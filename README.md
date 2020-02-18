@@ -100,5 +100,31 @@ Individual users can be created using the script in `bin/`:
 
 You will be prompted to enter a password for that user.
 
-## To Do
-- Heroku config
+### Deploy to Heroku
+
+Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli). Then, login:
+
+    heroku login
+
+From the main repo directory, create a heroku app:
+
+    heroku create flaskdash
+
+Provision a PostgreSQL database for your heroku app:
+
+    heroku addons:create heroku-postgresql:hobby-dev
+
+This database will automatically have the remote url stored in an environment variable `DATABASE_URL` - perfect! Now, deploy your app:
+
+    git push heroku master
+
+Everything should be running over at your app's site:
+
+    heroku open
+
+Now you need a user so you can log in. Open a shell in your app's environment, then run the `create_user.py` script:
+
+    heroku run bash
+    python bin/create_user.py <user_name> <user_email>
+
+You will be prompted for a user password as on your local. Note that openning a shell with `heroku ps:exec` will not load the environment variables you need, so you will not be able to interact with the database.
