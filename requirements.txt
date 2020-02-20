@@ -5,6 +5,7 @@ Flask-Login==0.4.1
 Flask-Migrate==2.5.2
 Flask-SQLAlchemy==2.4.0
 Flask-WTF==0.14.2
+gunicorn==19.9.0
 pandas==1.0.1
 pandas-datareader==0.8.1
 psycopg2-binary==2.8.3
