@@ -1,5 +1,5 @@
 dash==1.9.0
-Flask==1.1.1
+Flask==2.3.2
 Flask-HTTPAuth==3.3.0
 Flask-Login==0.4.1
 Flask-Migrate==2.5.2
